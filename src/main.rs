@@ -19,7 +19,11 @@ fn main() {
     let s3 = takes_and_gives_back(s2);    // s2 is moved into
                                           // takes_and_gives_back, which also
                                           // moves its return value into s3
-    println!("{} s1, {} s3", s1, s3)
+    println!("{} s1, {} s3", s1, s3);
+
+    let s4 = String::from("hello");
+    let (s5, len) = calculate_length(s1);
+    println!("The length of '{}' is {}.", s5, len);
 } // Here, x goes out of scope, then s. But because s's value was moved, nothing
   // special happens
   // Here, s3 goes out of scope and is dropped. s2 goes out of scope but was
@@ -49,4 +53,10 @@ fn takes_and_gives_back(a_string: String) -> String {   // a_string comes into
                                                         // scope
 
     a_string // a_string is returned and moves out to the calling function
+}
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the lenght of a String
+
+    (s, length)
 }
