@@ -14,6 +14,11 @@ fn main() {
     let len2 = calculate_length(&s2);
 
     println!("The length of '{}' is {}.", s2, len2);
+    
+//    Error: cannot borrow `s1` as mutable more than once at a time 
+//    let r1 = &mut s1;
+//    let r2 = &mut s1;
+//    println!("{}, {}", r1, r2);
 }
 
 fn calculate_length(s: &String) -> usize { // s is a reference to a String
