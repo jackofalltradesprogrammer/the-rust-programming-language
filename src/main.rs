@@ -39,6 +39,10 @@ fn main() {
 
     let r3 = &mut s;  // no problem
     println!("{}", r3);
+
+// Dangling reference
+// This will generate error - referencing to a variable that is no longer in scope
+    /* let reference_to_nothing = dangle(); */
 }
 
 fn calculate_length(s: &String) -> usize { // s is a reference to a String
@@ -55,3 +59,11 @@ fn calculate_length(s: &String) -> usize { // s is a reference to a String
 fn change(some_string: &mut String) {
     some_string.push_str(", world");
 }
+
+// This function's return type contains a borrowed value, but there is no value
+// for it to be borrowed from
+// fn dangle() -> &String{
+//     let s = String::from("hello");
+
+//     &s
+// }
