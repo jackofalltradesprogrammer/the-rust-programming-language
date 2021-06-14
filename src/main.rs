@@ -19,6 +19,14 @@ fn main() {
 //    let r1 = &mut s1;
 //    let r2 = &mut s1;
 //    println!("{}, {}", r1, r2);
+
+// We can use curyly brackets (new scope) to allow for multiple mutable references
+    let mut s = String::from("hello");
+    {
+        let r1 = &mut s;
+    } // r1 goes out of scope here, so we can make a new reference with no problems
+    let r2 = &mut s;
+    println!("The value of r2 is {}, ", r2);
 }
 
 fn calculate_length(s: &String) -> usize { // s is a reference to a String
