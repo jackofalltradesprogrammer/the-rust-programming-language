@@ -62,8 +62,8 @@ fn change(some_string: &mut String) {
 
 // This function's return type contains a borrowed value, but there is no value
 // for it to be borrowed from
-// fn dangle() -> &String{
-//     let s = String::from("hello");
+// fn dangle() -> &String { // dangle returns a reference to the string
+//     let s = String::from("hello"); // s is a new String
 
-//     &s
-// }
+//     &s // we return a reference to the String, s
+// } // Here, s goes out of scope, and is dropped. Its memory goes away. Danger!!
