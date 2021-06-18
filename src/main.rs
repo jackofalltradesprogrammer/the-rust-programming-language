@@ -33,6 +33,12 @@ fn main() {
     // this works too, without the slices syntax!
     let word = first_word_slices_parameters(my_string_literal);
     println!("The value of word using string literal without slices is {}", word);
+
+
+    // Other slices: on array
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    println!("The slice of an array using &a is {:?}", slice);
 }
 
 fn first_word(s: &String) -> usize {
